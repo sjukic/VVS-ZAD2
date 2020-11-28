@@ -65,9 +65,16 @@ namespace Domari
         /// Novi password se hashira a zatim spašava.
         /// </summary>
         /// <returns></returns>
+        /// urađeno grupno
         public void PromjenaPassworda(string verifikacija, string novi)
         {
-            throw new NotImplementedException();
+            if (verifikacija == password)
+            {
+                if (String.IsNullOrWhiteSpace(novi) || !novi.All(char.IsLetterOrDigit) || novi.Length < 7)
+                    throw new FormatException("Password mora sadržati slova i brojeve!");
+                password = novi.GetHashCode().ToString();
+            }
+            else new ArgumentException("Uneseni verifikacioni password nije jednak starom!");
         }
 
         #endregion
