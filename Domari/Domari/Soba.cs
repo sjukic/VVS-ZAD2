@@ -83,9 +83,37 @@ namespace Domari
         /// Ukoliko u sobi ima više stanara od novog kapaciteta, potrebno ih je izbaciti iz sobe.
         /// </summary>
         /// <param name="noviBroj"></param>
+        /// Sanjin Šabanović
         public void PromjenaBrojaSobe(int noviBroj)
         {
-            throw new NotImplementedException();
+            if (noviBroj >= 100 && noviBroj <= 199)
+            {
+                kapacitet = 2;
+                while (stanari.Count > kapacitet)
+                {
+                    IzbaciStudenta(stanari[stanari.Count - 1]);
+                }
+            }
+            else if (noviBroj >= 200 && noviBroj <= 299)
+            {
+                kapacitet = 3;
+                while (stanari.Count > kapacitet)
+                {
+                    IzbaciStudenta(stanari[stanari.Count - 1]);
+                }
+            }
+            else if (noviBroj >= 300 && noviBroj <= 399)
+            {
+                kapacitet = 4;
+                while (stanari.Count > kapacitet)
+                {
+                    IzbaciStudenta(stanari[stanari.Count - 1]);
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Broj sobe nije ispravan!");
+            }
         }
 
         #endregion
