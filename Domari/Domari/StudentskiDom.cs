@@ -114,9 +114,26 @@ namespace Domari
         /// </summary>
         /// <param name="student"></param>
         /// <param name="istiKapacitet"></param>
+        /// Sadik Jukic implementirana metoda PromjenaSobe 
         public void PromjenaSobe(Soba soba, int noviKapacitet)
         {
-            throw new NotImplementedException();
+            if (soba.Kapacitet == noviKapacitet)
+            {
+                soba.IsprazniSobu();
+            }
+            else if (noviKapacitet < soba.Kapacitet)
+            {
+                while (noviKapacitet < soba.Stanari.Count)
+                {
+                    soba.IzbaciStudenta(soba.Stanari[soba.Stanari.Count - 1]);
+                }
+                soba.Kapacitet = noviKapacitet;
+            }
+            else
+            {
+                soba.Kapacitet = noviKapacitet;
+            }
+            //throw new NotImplementedException();
         }
 
         public List<Student> DajStudenteIzPaviljona(IPodaci paviljon)
