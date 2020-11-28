@@ -84,9 +84,22 @@ namespace Domari
         /// novi broj indeksa prema postojećoj logici.
         /// </summary>
         /// <param name="iznos"></param>
+        /// uradio Faris Hrvo 
         public void PromjenaInformacijaOSkolovanju(string fakultet, int godina, int ciklus)
         {
-            throw new NotImplementedException();
+            if (skolovanje.MaticniFakultet == fakultet) {
+                if (skolovanje.CiklusStudija == ciklus) skolovanje.GodinaStudija = godina;
+                else {
+                    skolovanje.CiklusStudija = ciklus;
+                    skolovanje.GodinaStudija = godina;
+                }
+            } else {
+                skolovanje.MaticniFakultet = fakultet;
+                skolovanje.CiklusStudija = ciklus;
+                skolovanje.GodinaStudija = godina;
+                trenutniBroj += 1;
+                identifikacioniBroj = trenutniBroj;
+            }
         }
 
         #endregion
