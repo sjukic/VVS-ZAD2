@@ -88,7 +88,8 @@ namespace Domari
         public void PromjenaInformacijaOSkolovanju(string fakultet, int godina, int ciklus)
         {
             if (skolovanje.MaticniFakultet == fakultet) {
-                if (skolovanje.CiklusStudija == ciklus) skolovanje.GodinaStudija = godina;
+                if (skolovanje.CiklusStudija == ciklus) 
+                    skolovanje.GodinaStudija = godina;
                 else {
                     skolovanje.CiklusStudija = ciklus;
                     skolovanje.GodinaStudija = godina;

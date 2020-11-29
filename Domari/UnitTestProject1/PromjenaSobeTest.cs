@@ -51,5 +51,41 @@ namespace UnitTestProject1
             studentskiDom.PromjenaSobe(soba, 1);
             Assert.AreEqual(1, soba.Kapacitet);
         }
+
+        [TestMethod]
+        public void TestPromjeneMatcnogFakulteta()
+        {
+            Student student = new Student();
+            string fakultet = "Pravo";
+            int godine = 1, ciklus = 1;
+            student.Skolovanje = new Skolovanje();
+            student.PromjenaInformacijaOSkolovanju(fakultet, godine, ciklus);
+            Assert.AreEqual(student.Skolovanje.MaticniFakultet, "Pravo");
+        }
+
+        [TestMethod]
+        public void TestIstiMatcniFakultet()
+        {
+            Student student = new Student();
+            string fakultet = "Elektrotehnièki fakultet";
+            int godine = 2, ciklus = 1;
+            student.Skolovanje = new Skolovanje();
+            student.PromjenaInformacijaOSkolovanju(fakultet, godine, ciklus);
+            Assert.AreEqual(student.Skolovanje.MaticniFakultet, "Elektrotehnièki fakultet");
+            Assert.AreEqual(student.Skolovanje.GodinaStudija, 2);
+        }
+
+        [TestMethod]
+        public void TestIstiMatcniFakultetRazlicitCiklusStudija()
+        {
+            Student student = new Student();
+            string fakultet = "Elektrotehnièki fakultet";
+            int godine = 2, ciklus = 2;
+            student.Skolovanje = new Skolovanje();
+            student.PromjenaInformacijaOSkolovanju(fakultet, godine, ciklus);
+            Assert.AreEqual(student.Skolovanje.MaticniFakultet, "Elektrotehnièki fakultet");
+            Assert.AreEqual(student.Skolovanje.GodinaStudija, 2);
+            Assert.AreEqual(student.Skolovanje.CiklusStudija, 2);
+        }
     }
 }
