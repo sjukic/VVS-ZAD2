@@ -32,5 +32,18 @@ namespace UnitTestProject1
             studentskiDom.PromjenaSobe(soba, 3);
             Assert.AreEqual(3, soba.Kapacitet);
         }
+
+        [TestMethod]
+        public void TestKadaJeKapacitetManji()
+        {
+            int brojSobe = 350;
+            Student student1 = new Student(), student2 = new Student();
+            StudentskiDom studentskiDom = new StudentskiDom(brojSobe);
+            studentskiDom.Studenti.Add(student1);
+            studentskiDom.Studenti.Add(student2);
+            Soba soba = studentskiDom.Sobe[0];
+            studentskiDom.PromjenaSobe(soba, 3);
+            Assert.AreEqual(3, soba.Kapacitet);
+        }
     }
 }
