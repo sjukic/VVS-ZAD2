@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Domari;
 using System;
+using System.Collections.Generic;
 
 namespace UnitTestProject2
 {
@@ -230,6 +231,34 @@ namespace UnitTestProject2
             Assert.AreEqual(soba.Stanari.Count, 2);
             Student student3 = new Student();
             studentskiDom.UpisUDom(student3, 2, true);
+        }
+        #endregion
+
+        #region Student
+        [TestMethod]
+        public void StudentTest()
+        {
+            LicniPodaci licniPodaci = new LicniPodaci("Sadik", "Jukic", "Sarajevo", 
+                "sjukic1@etf.unsa.ba", "postoji", "1205998123321", Spol.Muško, DateTime.Parse("30.11.2020."));
+            Skolovanje skolovanje = new Skolovanje();
+            List<string> prebivaliste = new List<string>();
+            Student student = new Student("sjukic1", "Sadik123", licniPodaci, prebivaliste, skolovanje);
+            Assert.AreEqual(student.Podaci, licniPodaci);
+            Assert.AreEqual(student.Prebivaliste, prebivaliste);
+            Assert.AreEqual(student.StanjeRacuna, 1000.00);
+        }
+
+        [TestMethod]
+        public void AzurirajStanje()
+        {
+            LicniPodaci licniPodaci = new LicniPodaci("Sadik", "Jukic", "Sarajevo",
+                "sjukic1@etf.unsa.ba", "postoji", "1205998123321", Spol.Muško, DateTime.Parse("30.11.2020."));
+            Skolovanje skolovanje = new Skolovanje();
+            List<string> prebivaliste = new List<string>();
+            Student student = new Student("sjukic1", "Sadik123", licniPodaci, prebivaliste, skolovanje);
+            Assert.AreEqual(student.StanjeRacuna, 1000.00);
+            student.AzurirajStanjeRacuna(200.00);
+            Assert.AreEqual(student.StanjeRacuna, 1200.00);
         }
         #endregion
     }

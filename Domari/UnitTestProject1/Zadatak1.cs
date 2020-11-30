@@ -1,4 +1,4 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+ï»¿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using Domari;
 using System;
@@ -68,11 +68,11 @@ namespace UnitTestProject1
         public void TestIstiMatcniFakultet()
         {
             Student student = new Student();
-            string fakultet = "Elektrotehnièki fakultet";
+            string fakultet = "ElektrotehniÄki fakultet";
             int godine = 2, ciklus = 1;
             student.Skolovanje = new Skolovanje();
             student.PromjenaInformacijaOSkolovanju(fakultet, godine, ciklus);
-            Assert.AreEqual(student.Skolovanje.MaticniFakultet, "Elektrotehnièki fakultet");
+            Assert.AreEqual(student.Skolovanje.MaticniFakultet, "ElektrotehniÄki fakultet");
             Assert.AreEqual(student.Skolovanje.GodinaStudija, 2);
         }
 
@@ -80,11 +80,11 @@ namespace UnitTestProject1
         public void TestIstiMatcniFakultetRazlicitCiklusStudija()
         {
             Student student = new Student();
-            string fakultet = "Elektrotehnièki fakultet";
+            string fakultet = "ElektrotehniÄki fakultet";
             int godine = 2, ciklus = 2;
             student.Skolovanje = new Skolovanje();
             student.PromjenaInformacijaOSkolovanju(fakultet, godine, ciklus);
-            Assert.AreEqual(student.Skolovanje.MaticniFakultet, "Elektrotehnièki fakultet");
+            Assert.AreEqual(student.Skolovanje.MaticniFakultet, "ElektrotehniÄki fakultet");
             Assert.AreEqual(student.Skolovanje.GodinaStudija, 2);
             Assert.AreEqual(student.Skolovanje.CiklusStudija, 2);
         }
