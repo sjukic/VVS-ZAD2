@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<coverage line-rate="0.3074" branch-rate="0.2232" version="1.9" timestamp="1606729278" lines-covered="103" lines-valid="335" branches-covered="25" branches-valid="112">
+<coverage line-rate="0.30469999999999997" branch-rate="0.2155" version="1.9" timestamp="1606746645" lines-covered="103" lines-valid="338" branches-covered="25" branches-valid="116">
   <sources>
     <source>C:\Users\User\</source>
   </sources>
   <packages>
-    <package name="Domari" line-rate="0.2271" branch-rate="0.2232" complexity="158">
+    <package name="Domari" line-rate="0.2248" branch-rate="0.2155" complexity="161">
       <classes>
-        <class name="Domari.Korisnik" filename="source\repos\VVS-ZAD2\Domari\Domari\Korisnik.cs" line-rate="0.1" branch-rate="0" complexity="19">
+        <class name="Domari.Korisnik" filename="Source\Repos\VVS-ZAD2\Domari\Domari\Korisnik.cs" line-rate="0.1" branch-rate="0" complexity="19">
           <methods>
             <method name="get_Username" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -136,7 +136,7 @@
             <line number="55" hits="6" branch="False" />
           </lines>
         </class>
-        <class name="Domari.LicniPodaci" filename="source\repos\VVS-ZAD2\Domari\Domari\LicniPodaci.cs" line-rate="0" branch-rate="0" complexity="36">
+        <class name="Domari.LicniPodaci" filename="Source\Repos\VVS-ZAD2\Domari\Domari\LicniPodaci.cs" line-rate="0" branch-rate="0" complexity="36">
           <methods>
             <method name="get_Ime" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -394,7 +394,7 @@
             <line number="135" hits="0" branch="False" />
           </lines>
         </class>
-        <class name="Domari.Paviljon" filename="source\repos\VVS-ZAD2\Domari\Domari\Paviljon.cs" line-rate="0" branch-rate="1" complexity="1">
+        <class name="Domari.Paviljon" filename="Source\Repos\VVS-ZAD2\Domari\Domari\Paviljon.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
             <method name="DajImePaviljona" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -408,7 +408,7 @@
             <line number="15" hits="0" branch="False" />
           </lines>
         </class>
-        <class name="Domari.Skolovanje" filename="source\repos\VVS-ZAD2\Domari\Domari\Skolovanje.cs" line-rate="0" branch-rate="1" complexity="10">
+        <class name="Domari.Skolovanje" filename="Source\Repos\VVS-ZAD2\Domari\Domari\Skolovanje.cs" line-rate="0" branch-rate="0" complexity="13">
           <methods>
             <method name="get_MaticniFakultet" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -450,10 +450,21 @@
                 <line number="36" hits="0" branch="False" />
               </lines>
             </method>
-            <method name="PromjenaGodineStudija" signature="(System.Int32,System.Int32)" line-rate="0" branch-rate="1" complexity="1">
+            <method name="PromjenaGodineStudija" signature="(System.Int32,System.Int32)" line-rate="0" branch-rate="0" complexity="4">
               <lines>
                 <line number="56" hits="0" branch="False" />
-                <line number="57" hits="0" branch="False" />
+                <line number="58" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="7" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="59" hits="0" branch="True" condition-coverage="0% (0/2)">
+                  <conditions>
+                    <condition number="27" type="jump" coverage="0%" />
+                  </conditions>
+                </line>
+                <line number="60" hits="0" branch="False" />
+                <line number="61" hits="0" branch="False" />
               </lines>
             </method>
             <method name=".ctor" signature="()" line-rate="0" branch-rate="1" complexity="1">
@@ -478,7 +489,18 @@
             <line number="35" hits="0" branch="False" />
             <line number="36" hits="0" branch="False" />
             <line number="56" hits="0" branch="False" />
-            <line number="57" hits="0" branch="False" />
+            <line number="58" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="7" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="59" hits="0" branch="True" condition-coverage="0% (0/2)">
+              <conditions>
+                <condition number="27" type="jump" coverage="0%" />
+              </conditions>
+            </line>
+            <line number="60" hits="0" branch="False" />
+            <line number="61" hits="0" branch="False" />
             <line number="43" hits="0" branch="False" />
             <line number="44" hits="0" branch="False" />
             <line number="45" hits="0" branch="False" />
@@ -488,7 +510,7 @@
             <line number="49" hits="0" branch="False" />
           </lines>
         </class>
-        <class name="Domari.Soba" filename="source\repos\VVS-ZAD2\Domari\Domari\Soba.cs" line-rate="0.2727" branch-rate="0.0454" complexity="29">
+        <class name="Domari.Soba" filename="Source\Repos\VVS-ZAD2\Domari\Domari\Soba.cs" line-rate="0.2727" branch-rate="0.0454" complexity="29">
           <methods>
             <method name="get_BrojSobe" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
@@ -714,7 +736,7 @@
             <line number="43" hits="30" branch="False" />
           </lines>
         </class>
-        <class name="Domari.Student" filename="source\repos\VVS-ZAD2\Domari\Domari\Student.cs" line-rate="0.0975" branch-rate="0" complexity="16">
+        <class name="Domari.Student" filename="Source\Repos\VVS-ZAD2\Domari\Domari\Student.cs" line-rate="0.0975" branch-rate="0" complexity="16">
           <methods>
             <method name="get_IdentifikacioniBroj" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -874,7 +896,7 @@
             <line number="70" hits="6" branch="False" />
           </lines>
         </class>
-        <class name="Domari.StudentskiDom" filename="source\repos\VVS-ZAD2\Domari\Domari\StudentskiDom.cs" line-rate="0.5" branch-rate="0.5454" complexity="47">
+        <class name="Domari.StudentskiDom" filename="Source\Repos\VVS-ZAD2\Domari\Domari\StudentskiDom.cs" line-rate="0.5" branch-rate="0.5454" complexity="47">
           <methods>
             <method name="get_Studenti" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -1260,7 +1282,7 @@
             <line number="4" hits="0" branch="False" />
           </lines>
         </class>
-        <class name="UnitTestProject3.StudenskiDomTest" filename="source\repos\VVS-ZAD2\Domari\UnitTestProject3\StudenskiDomTest.cs" line-rate="0.9229999999999999" branch-rate="1" complexity="6">
+        <class name="UnitTestProject3.StudenskiDomTest" filename="Source\Repos\VVS-ZAD2\Domari\UnitTestProject3\StudenskiDomTest.cs" line-rate="0.9229999999999999" branch-rate="1" complexity="6">
           <methods>
             <method name="RadSaStudentomNoviStudent" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 namespace Unit_Testovi
 {
+    #region Objekat
     public class Paviljon : IPodaci
     {
         public string DajImePaviljona()
@@ -12,6 +13,8 @@ namespace Unit_Testovi
             return "ETF";
         }
     }
+    #endregion
+
     [TestClass]
     public class NoviTestovi
     {
