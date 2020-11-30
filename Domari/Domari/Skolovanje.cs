@@ -54,7 +54,10 @@ namespace Domari
 
         public double PromjenaGodineStudija(int godina, int ciklus)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            if (ciklus == 1) return 1800;
+            else if (ciklus == 2) return 2000;
+            else throw new ArgumentException();
         }
 
         #endregion
