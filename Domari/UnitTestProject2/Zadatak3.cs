@@ -7,7 +7,25 @@ namespace UnitTestProject2
     [TestClass]
     public class Zadatak3
     {
+        #region Skolovanje
+        [TestMethod]
+        public void SkolovanjeIndeks()
+        {
+            Skolovanje skolovanje = new Skolovanje();
+            skolovanje.BrojIndeksa = "123";
+            Assert.AreEqual(skolovanje.BrojIndeksa, "123");
+        }
+        #endregion
+
         #region Stanar
+
+        [TestMethod]
+        public void BrojSobe()
+        {
+            Soba soba = new Soba(123, 2);
+            Assert.AreEqual(soba.BrojSobe, 123);
+        }
+
         [TestMethod]
         public void DodajStanaraImaMjesta()
         {
@@ -29,7 +47,7 @@ namespace UnitTestProject2
             soba.DodajStanara(student2);
             soba.DodajStanara(student3);
         }
-
+        
         [TestMethod]
         public void DaLiJeStanar()
         {
@@ -59,7 +77,7 @@ namespace UnitTestProject2
             Assert.AreEqual(licniPodaci.Slika, "postoji");
             Assert.AreEqual(licniPodaci.JMBG, "1205998123321");
             Assert.AreEqual(licniPodaci.Spol, Spol.Muško);
-            Assert.AreEqual(licniPodaci.DatumRodjenja.ToString(), "30.11.2020. 00:00:00");
+            Assert.AreEqual(licniPodaci.DatumRodjenja.ToString(), "30. 11. 2020. 00:00:00"); //pada zbog space
         }
 
         [TestMethod]
@@ -102,6 +120,116 @@ namespace UnitTestProject2
         public void TestNeuspjesneUnosaDatuma()
         {
             LicniPodaci licniPodaci = new LicniPodaci("Sadik", "Jukic", "Sarajevo", "sjukic1@etf.unsa.ba", "postoji", "1205998123321", Spol.Muško, DateTime.Parse("30.12.2020."));
+        }
+        #endregion
+
+        #region StudenskiDom
+        [TestMethod]
+        public void RadSaStudentomNoviStudent()
+        {
+            StudentskiDom studentskiDom = new StudentskiDom(5);
+            Student student = new Student();
+            studentskiDom.RadSaStudentom(student, 0);
+            Assert.AreEqual(studentskiDom.Studenti.Count, 1);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(DuplicateWaitObjectException))]
+        public void RadSaStudentomIstiStudent()
+        {
+            StudentskiDom studentskiDom = new StudentskiDom(5);
+            Student student = new Student();
+            studentskiDom.RadSaStudentom(student, 0);
+            studentskiDom.RadSaStudentom(student, 0);
+        }
+
+        [TestMethod]
+        public void RadSaStudentomIzbaciStanar()
+        {
+            StudentskiDom studentskiDom = new StudentskiDom(5);
+            Student student = new Student();
+            Soba soba = studentskiDom.Sobe[0];
+            soba.Stanari.Add(student);
+            Assert.AreEqual(soba.Stanari.Count, 1);
+            studentskiDom.RadSaStudentom(student, 1);
+            Assert.AreEqual(soba.Stanari.Count, 0);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void RadSaStudentomIzbaciNijeStanar()
+        {
+            StudentskiDom studentskiDom = new StudentskiDom(5);
+            Student student = new Student();
+            studentskiDom.RadSaStudentom(student, 1);
+        }
+
+        [TestMethod]
+        public void RadSaStudentomIzbrisi()
+        {
+            StudentskiDom studentskiDom = new StudentskiDom(5);
+            Student student = new Student();
+            studentskiDom.RadSaStudentom(student, 0);
+            Assert.AreEqual(studentskiDom.Studenti.Count, 1);
+            studentskiDom.RadSaStudentom(student, 2);
+            Assert.AreEqual(studentskiDom.Studenti.Count, 0);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(MissingMemberException))]
+        public void RadSaStudentomIzbrisiDrugog()
+        {
+            StudentskiDom studentskiDom = new StudentskiDom(5);
+            Student student = new Student();
+            studentskiDom.RadSaStudentom(student, 2);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void UpisDomNemaSobe()
+        {
+            StudentskiDom studentskiDom = new StudentskiDom(5);
+            Student student = new Student();
+            studentskiDom.UpisUDom(student, 5, false);
+        }
+
+        [TestMethod]
+        public void UpisDomSlobodna()
+        {
+            StudentskiDom studentskiDom = new StudentskiDom(5);
+            Student student = new Student();
+            studentskiDom.UpisUDom(student, 2, false);
+            Soba soba = studentskiDom.Sobe[0];
+            Assert.AreEqual(soba.Stanari.Count, 1);
+        }
+
+        [TestMethod]
+        public void UpisDomZauzeta()
+        {
+            StudentskiDom studentskiDom = new StudentskiDom(1);
+            Student student = new Student();
+            studentskiDom.UpisUDom(student, 2, false);
+            Soba soba = studentskiDom.Sobe[0];
+            Assert.AreEqual(soba.Stanari.Count, 1);
+            Student student2 = new Student();
+            studentskiDom.UpisUDom(student2, 2, false);
+            Assert.AreEqual(soba.Stanari.Count, 2);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void UpisDomZauzeteSveSobe()
+        {
+            StudentskiDom studentskiDom = new StudentskiDom(1);
+            Student student = new Student();
+            studentskiDom.UpisUDom(student, 2, true);
+            Soba soba = studentskiDom.Sobe[0];
+            Assert.AreEqual(soba.Stanari.Count, 1);
+            Student student2 = new Student();
+            studentskiDom.UpisUDom(student2, 2, true);
+            Assert.AreEqual(soba.Stanari.Count, 2);
+            Student student3 = new Student();
+            studentskiDom.UpisUDom(student3, 2, true);
         }
         #endregion
     }
