@@ -78,7 +78,7 @@ namespace UnitTestProject2
             Assert.AreEqual(licniPodaci.Slika, "postoji");
             Assert.AreEqual(licniPodaci.JMBG, "1205998123321");
             Assert.AreEqual(licniPodaci.Spol, Spol.Muško);
-            Assert.AreEqual(licniPodaci.DatumRodjenja.ToString(), "30. 11. 2020. 00:00:00"); //pada zbog space
+            Assert.AreEqual(licniPodaci.DatumRodjenja.ToString(), "30.11.2020. 00:00:00"); 
         }
 
         [TestMethod]
