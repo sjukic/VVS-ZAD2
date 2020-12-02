@@ -79,6 +79,7 @@ namespace UnitTestProject2
             Assert.AreEqual(licniPodaci.JMBG, "1205998123321");
             Assert.AreEqual(licniPodaci.Spol, Spol.Muško);
             Assert.AreEqual(licniPodaci.DatumRodjenja.ToString(), "30.11.2020. 00:00:00"); 
+            //nekada je potreban drugaciji format datuma da bi test prosao
         }
 
         [TestMethod]

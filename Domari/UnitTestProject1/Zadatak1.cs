@@ -8,6 +8,7 @@ namespace UnitTestProject1
     [TestClass]
     public class Zadatak1
     {
+        //test napisao Faris Hrvo
         [TestMethod]
         public void TestKadaJeKapacitetVeci()
         {
@@ -23,6 +24,7 @@ namespace UnitTestProject1
             Assert.AreEqual(3, soba.Kapacitet);
         }
 
+        //test napisao Sanjin Šabanović
         [TestMethod]
         public void TestKadaJeKapacitetIsti()
         {
@@ -38,6 +40,7 @@ namespace UnitTestProject1
             Assert.AreEqual(2, soba.Kapacitet);
         }
 
+        //test napisao Sanjin Šabanović
         [TestMethod]
         public void TestKadaJeKapacitetManji()
         {
@@ -53,6 +56,7 @@ namespace UnitTestProject1
             Assert.AreEqual(1, soba.Kapacitet);
         }
 
+        //test napisao Sadik Jukić
         [TestMethod]
         public void TestPromjeneMatcnogFakulteta()
         {
@@ -64,6 +68,7 @@ namespace UnitTestProject1
             Assert.AreEqual(student.Skolovanje.MaticniFakultet, "Pravo");
         }
 
+        //test napisao Sanjin Šabanović
         [TestMethod]
         public void TestIstiMatcniFakultet()
         {
@@ -76,6 +81,7 @@ namespace UnitTestProject1
             Assert.AreEqual(student.Skolovanje.GodinaStudija, 2);
         }
 
+        //test napisao Sanjin Šabanović
         [TestMethod]
         public void TestIstiMatcniFakultetRazlicitCiklusStudija()
         {
@@ -89,6 +95,7 @@ namespace UnitTestProject1
             Assert.AreEqual(student.Skolovanje.CiklusStudija, 2);
         }
 
+        //test napisao Faris Hrvo
         [TestMethod]
         public void TestPasswordaKadaSuRazliciti()
         {
@@ -107,6 +114,7 @@ namespace UnitTestProject1
             }
         }
 
+        //test napisao Sadik Jukić
         [TestMethod]
         public void TestPasswordaKadaSuIsti()
         {
@@ -125,6 +133,7 @@ namespace UnitTestProject1
             }
         }
 
+        //test napisao Faris Hrvo
         [TestMethod]
         public void TestSobaKadaJeKapacitet2()
         {
@@ -136,10 +145,11 @@ namespace UnitTestProject1
             soba.Stanari.Add(student2);
             soba.Stanari.Add(student3);
             soba.PromjenaBrojaSobe(105);
-            Assert.AreEqual(soba.Kapacitet,2);
+            Assert.AreEqual(soba.Kapacitet, 2);
             Assert.AreEqual(soba.Stanari.Count, 2);
         }
 
+        //test napisao Sadik Jukić
         [TestMethod]
         public void TestSobaKadaJeKapacitet3()
         {
@@ -157,6 +167,7 @@ namespace UnitTestProject1
             Assert.AreEqual(soba.Stanari.Count, 3);
         }
 
+        //test napisao Faris Hrvo
         [TestMethod]
         public void TestSobaKadaJeKapacitet4()
         {
@@ -176,6 +187,7 @@ namespace UnitTestProject1
             Assert.AreEqual(soba.Stanari.Count, 4);
         }
 
+        //test napisao Sadik Jukić
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void TestNeuspjesnePromjeneKapaciteta()
