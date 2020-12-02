@@ -48,7 +48,7 @@ namespace UnitTestProject2
             soba.DodajStanara(student2);
             soba.DodajStanara(student3);
         }
-        
+
         [TestMethod]
         public void DaLiJeStanar()
         {
@@ -70,7 +70,7 @@ namespace UnitTestProject2
         [TestMethod]
         public void ProvjeraKadaJeKonstruktorKlaseLicniPodaciSaParametrima()
         {
-            LicniPodaci licniPodaci = new LicniPodaci("Sadik", "Jukic", "Sarajevo", "sjukic1@etf.unsa.ba", "postoji","1205998123321", Spol.Muško, DateTime.Parse("30.11.2020."));
+            LicniPodaci licniPodaci = new LicniPodaci("Sadik", "Jukic", "Sarajevo", "sjukic1@etf.unsa.ba", "postoji", "1205998123321", Spol.Muško, DateTime.Parse("30.11.2020."));
             Assert.AreEqual(licniPodaci.Ime, "Sadik");
             Assert.AreEqual(licniPodaci.Prezime, "Jukic");
             Assert.AreEqual(licniPodaci.MjestoRodjenja, "Sarajevo");
@@ -237,7 +237,7 @@ namespace UnitTestProject2
         [TestMethod]
         public void StudentTest()
         {
-            LicniPodaci licniPodaci = new LicniPodaci("Sadik", "Jukic", "Sarajevo", 
+            LicniPodaci licniPodaci = new LicniPodaci("Sadik", "Jukic", "Sarajevo",
                 "sjukic1@etf.unsa.ba", "postoji", "1205998123321", Spol.Muško, DateTime.Parse("30.11.2020."));
             Skolovanje skolovanje = new Skolovanje();
             List<string> prebivaliste = new List<string>();
@@ -258,6 +258,31 @@ namespace UnitTestProject2
             Assert.AreEqual(student.StanjeRacuna, 1000.00);
             student.AzurirajStanjeRacuna(200.00);
             Assert.AreEqual(student.StanjeRacuna, 1200.00);
+        }
+        #endregion
+
+        #region Soba
+        static IEnumerable<object[]> DataKadaSuPodaciDobri
+        {
+            get
+            {
+                return new[]
+                {
+                new object[] { 1, 2 },
+                new object[] { 2, 3 },
+                new object[] { 3, 4 }
+                };
+            }
+
+        }
+
+        [TestMethod]
+        [DynamicData("DataKadaSuPodaciDobri")]
+        public void DataDrivenTestiranje(int id, int kapacitet)
+        {
+            Soba soba = new Soba(id, kapacitet);
+            Assert.AreEqual(id, soba.BrojSobe);
+            Assert.AreEqual(kapacitet, soba.Kapacitet);
         }
         #endregion
     }
